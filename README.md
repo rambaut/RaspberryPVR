@@ -52,7 +52,7 @@ Kodi user interface appears.
 
 From a terminal on a computer attached to the same network:
 
->  ssh pi@<IP_ADDRESS>
+>  ssh pi@IP_ADDRESS
 
 The IP address will be displayed in the SYSTEM -> System Info menu in Kodi
 
@@ -91,10 +91,17 @@ Looking at /etc/init/tvheadend.conf:
 >
 >exec su - $(grep 1000 /etc/passwd | cut -f1 -d":") -c "/usr/bin/tvheadend -C -d"
 
-This looks like it should start tvheadend if xmbc is started and has enable-tveadend. Not sure why it doesn't start but will investigate this later. In the mean time start tvheadend manually:
+This looks like it should start tvheadend if xmbc is started and has enable-tveadend. Not sure why it doesn't start but will investigate this later. In the meantime start tvheadend manually:
 
 >nohup tvheadend -C -d &
 
+6 Setup tvheadend
 
+Tvheadend is configurable from a browser at http://IP_ADDRESS:9981
+
+Operation
+---------
+
+TV and Radio are now available as main Kodi options. Electronic program guide works and recording/playback. Need to install external storage for recording (currently recording to home directory on SD card). 
 
 
