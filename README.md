@@ -28,11 +28,11 @@ Software
 Steps
 -----
 
-1.  Install RaspBMC on SD card. Followed the Mac/Linux instructions here:
+Install RaspBMC on SD card. Followed the Mac/Linux instructions here:
 
 > http://www.raspbmc.com/wiki/user/os-x-linux-installation/
 
-2.  Connected up the Raspberry Pi:
+Connected up the Raspberry Pi:
 
 -   Power from USB powerbrick (the USB port on the TV would't supply enough power but that might just be my setup).
 -   Ethernet cable to router
@@ -40,7 +40,7 @@ Steps
 -   DVB-T stick in USB port
 -   SD card created above
 
-3.  Powered up RPi
+Powered up RPi
 
 RaspBMC installs (takes 10 minutes)
 
@@ -48,19 +48,19 @@ Kodi user interface appears.
 
 > Interesting note: I can control Kodi through my television's (a Panasonic Viera) remote control. The RPi doesn't have an IR receiver so I can only imagine this is coming through the HDMI cable. This is a very useful feature which I hadn't expected. 
 
-4.  Change default password
+Change default password
 
-From a terminal on a computer attached to the same network:
+  From a terminal on a computer attached to the same network:
 
 >  ssh pi@IP_ADDRESS
 
-The IP address will be displayed in the SYSTEM -> System Info menu in Kodi
+  The IP address will be displayed in the SYSTEM -> System Info menu in Kodi
 
-The default password is 'raspberry'. Log in and change the password:
+  The default password is 'raspberry'. Log in and change the password:
 
 >  passwd pi
 
-5.  Enabled TVHeadEnd add-on in Kodi
+Enabled TVHeadEnd add-on in Kodi
 
 >  SYSTEM -> Settings -> Add-ons -> Disabled Add-ons -> Tvheadend HTSP Client -> Enabled [select]
 
@@ -68,8 +68,9 @@ The default password is 'raspberry'. Log in and change the password:
 
 Reboot the RPi using the Kodi restart button.
 
-At this point, tvheadend should have been started in the /etc/init script but Kodi could not connect to it. Logging in confirms this - tvheadend is not running. 
-Looking at /etc/init/tvheadend.conf:
+  At this point, tvheadend should have been started in the /etc/init script but Kodi could not connect to it. Logging in confirms this - tvheadend is not running. 
+  
+  Looking at /etc/init/tvheadend.conf:
 
 >   cat /etc/init/tvheadend.conf
 >   \#\# TVHeadend server
@@ -92,13 +93,13 @@ Looking at /etc/init/tvheadend.conf:
 >   
 >   exec su - $(grep 1000 /etc/passwd | cut -f1 -d":") -c "/usr/bin/tvheadend -C -d"
 
-This looks like it should start tvheadend if xmbc is started and has enable-tveadend. Not sure why it doesn't start but will investigate this later. In the meantime start tvheadend manually:
+  This looks like it should start tvheadend if xmbc is started and has enable-tveadend. Not sure why it doesn't start but will investigate this later. In the meantime start tvheadend manually:
 
 >nohup tvheadend -C -d &
 
-6. Setup tvheadend
+Setup tvheadend
 
-Tvheadend is configurable from a browser at http://IP_ADDRESS:9981
+  Tvheadend is configurable from a browser at http://IP_ADDRESS:9981
 
 Operation
 ---------
