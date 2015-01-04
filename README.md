@@ -93,13 +93,19 @@ Reboot the RPi using the Kodi restart button.
 >   
 >   exec su - $(grep 1000 /etc/passwd | cut -f1 -d":") -c "/usr/bin/tvheadend -C -d"
 
-  This looks like it should start tvheadend if xmbc is started and has enable-tveadend. Not sure why it doesn't start but will investigate this later. In the meantime start tvheadend manually:
+  This looks like it should start tvheadend if xbmc is started and has enable-tveadend. Not sure why it doesn't start but will investigate this later. In the meantime start tvheadend manually:
 
 >nohup tvheadend -C -d &
 
 Setup tvheadend
 
   Tvheadend is configurable from a browser at http://IP_ADDRESS:9981
+
+Purchase and install MPEG-2 license key
+
+  Purchased from Raspberry Pi store http://www.raspberrypi.com
+  
+  Delivered by email. The license can be installed onto the SD card in the 'config.txt' as described in the license email or can be done in the RaspBMC configuration interface. This is hidden in Apps->RaspBMC Settings. 
 
 Operation
 ---------
