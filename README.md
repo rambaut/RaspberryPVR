@@ -70,26 +70,26 @@ Reboot the RPi using the Kodi restart button.
 
 At this point, tvheadend should have been started in the /etc/init script but Kodi could not connect to it. Logging in confirms this - tvheadend is not running. 
 Looking at /etc/init/tvheadend.conf:
->cat /etc/init/tvheadend.conf
->## TVHeadend server
->
->description "tvh"
->author "none"
->
->start on (started xbmc and enable-tvheadend)
->stop on (disable-tvheadend or runlevel [!2345])
->
->respawn
->
->pre-start script
->test -x /usr/bin/tvheadend || { stop; logger -t tvheadend "cannot execute /usr/bin/tvheadend, exiting" ; exit 1; }
->modprobe dvb_hdhomerun
->sleep 5
->sudo userhdhomerun -f
->sleep 5
->end script
->
->exec su - $(grep 1000 /etc/passwd | cut -f1 -d":") -c "/usr/bin/tvheadend -C -d"
+>   cat /etc/init/tvheadend.conf
+>   ## TVHeadend server
+>   
+>   description "tvh"
+>   author "none"
+>   
+>   start on (started xbmc and enable-tvheadend)
+>   stop on (disable-tvheadend or runlevel [!2345])
+>   
+>   respawn
+>   
+>   pre-start script
+>   test -x /usr/bin/tvheadend || { stop; logger -t tvheadend "cannot execute /usr/bin/tvheadend, exiting" ; exit 1; }
+>   modprobe dvb_hdhomerun
+>   sleep 5
+>   sudo userhdhomerun -f
+>   sleep 5
+>   end script
+>   
+>   exec su - $(grep 1000 /etc/passwd | cut -f1 -d":") -c "/usr/bin/tvheadend -C -d"
 
 This looks like it should start tvheadend if xmbc is started and has enable-tveadend. Not sure why it doesn't start but will investigate this later. In the meantime start tvheadend manually:
 
