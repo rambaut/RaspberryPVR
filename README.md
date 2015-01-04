@@ -1,7 +1,7 @@
 RaspberryPVR
 ============
 
-Notes about creating a Freeview PVR from a Raspberry Pi, a cheap DVB-T dongle and RaspBMC software.
+Notes about creating a Freeview PVR from a Raspberry Pi, a cheap DVB-T dongle and RaspBMC software. These notes are primarily for my own documentation.
 
 Hardware
 --------
